@@ -1,0 +1,420 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"inn",
+				"innerHTML"
+			],
+			[
+				"get",
+				"getElementById"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "caminho.php",
+			"settings":
+			{
+				"buffer_size": 2683,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "classe/Primeiro_metodo.php",
+			"settings":
+			{
+				"buffer_size": 3273,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "classe/classe-primeiro-metodo_sem_heranca.php",
+			"settings":
+			{
+				"buffer_size": 4992,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "classe/Add.php",
+			"settings":
+			{
+				"buffer_size": 3232,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\ninclude 'Problema.php';\n\n\n/**\n * Description of Primeiro_metodo\n *\n * @author Peter Clayder\n */\nclass Primeiro_metodo extends Problema{\n    \n\n    function __construct($matriz, $qtdGrafo) {\n        parent::__construct($matriz, $qtdGrafo);\n    }\n    \n\n    /*\n     * Retorna qual é o grafo mais próximo\n     * funcao max: retorna o maior valor de um array\n     * @param int $posicao recebe o número da linha da matriz\n    */\n    private function menorCaminho($posicao) {\n        /*\n         * @name $array \n         * Recebe a linha ($posicao) da matriz\n        */\n        $array = $this->matriz[$posicao];\n        $menor = max($array);\n        $proximoGrafo = NULL;\n        \n        for($i=0; $i<count($array); $i++){\n            /*\n             * Se aquela posição for menor do que $menor e se esse grafo ainda não foi percorrido\n            */\n            if($array[$i] < $menor && $this->arrayGrafo[$i] != 1){\n                $menor = $array[$i];\n                $proximoGrafo = $i;\n            }\n        }\n        return $proximoGrafo;\n    }\n    \n    public function caminho($posicao = NULL) {\n        // Se todos os grafos foram percorridos\n        if ($this->verificaGrafo()) {\n          \n            /*\n             * funcao end retorna o valor do último elemento de um array\n            */\n            $valorUltimoCaminho = end($this->arrayCaminho);\n            \n            /*\n             * O vetor arrayCaminho recebe na sua última posição o valor zero (grafo inicial) \n            */\n            $this->arrayCaminho[] = 0;\n            \n            /*\n             * Soma o custo da última posição até a posição inicial\n            */\n            $this->custo = $this->custo + $this->matriz[$valorUltimoCaminho][0];\n            \n            return $this->arrayCaminho;\n        } else {\n            // Se a posição 0 for igual a 0, significa que nada foi percorrido\n            if ($this->arrayGrafo[0] == 0) {\n                /*\n                 * O grafo inicial(0) foi percorrido, então recebe o valor 1\n                */\n                $this->arrayGrafo[0] = 1;\n                /*\n                 * É inserido o caminho inicial\n                 */\n                $this->arrayCaminho[] = 0;\n                $posicao = 0;\n                $proximoCaminho = $this->menorCaminho($posicao);\n                /*\n                 * Soma o custo da primeira posição(0), até a proxima posição\n                */\n                $this->custo = $this->custo + $this->matriz[0][$proximoCaminho];\n                /*\n                 * A próxima posição que será utilizada recebe o valor 1.\n                */\n                $this->arrayGrafo[$proximoCaminho] = 1;\n                /*\n                 * É inserido mais um caminho\n                 */\n                $this->arrayCaminho[] = $proximoCaminho;\n                return $this->caminho($proximoCaminho);\n            } else {                \n                $proximoCaminho = $this->menorCaminho($posicao);\n                $this->arrayGrafo[$proximoCaminho] = 1;\n                $this->arrayCaminho[] = $proximoCaminho;\n                $this->custo = $this->custo + $this->matriz[$posicao][$proximoCaminho];               \n                return $this->caminho($proximoCaminho);\n            }\n        }\n\n    }\n\n}\n",
+			"settings":
+			{
+				"buffer_size": 3278,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "classe/Problema.php",
+			"settings":
+			{
+				"buffer_size": 2056,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 369.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 320.0
+	},
+	"console":
+	{
+		"height": 174.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/opt/lampp/htdocs/www/Problema-do-Caixeiro-Viajante",
+		"/opt/lampp/htdocs/www/Problema-do-Caixeiro-Viajante/classe"
+	],
+	"file_history":
+	[
+		"/home/clayder/Downloads/Tetris 1.0/main.cpp",
+		"/home/clayder/Downloads/Tetris 1.0/Tetris 1.0.layout",
+		"/opt/lampp/htdocs/www/Problema-do-Caixeiro-Viajante/classe-primeiro-metodo_sem_heranca.php",
+		"/home/clayder/Desenvolvimento/javascript/js/javascript.js",
+		"/home/clayder/Desenvolvimento/javascript/index.html",
+		"/home/clayder/Desenvolvimento/javascript/aula7.html",
+		"/home/clayder/Desenvolvimento/javascript/aula4.html"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"max",
+			"arrayCaminho",
+			"qtdGrafo",
+			"arrayGrafo"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "caminho.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2683,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "classe/Primeiro_metodo.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3273,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "classe/classe-primeiro-metodo_sem_heranca.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 4992,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "classe/Add.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3278,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3278,
+								3278
+							]
+						],
+						"settings":
+						{
+							"default_dir": "/opt/lampp/htdocs/www/Problema-do-Caixeiro-Viajante",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1651.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "classe/Problema.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2056,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 350.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "trabalho-apa.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 281.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
