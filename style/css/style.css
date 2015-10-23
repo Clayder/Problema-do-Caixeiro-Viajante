@@ -1,0 +1,31 @@
+.circle {
+    width: 50%;
+    height:0;
+    padding-bottom: 50%;
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+    background: #4679BD; 
+    margin: 0 auto;
+}
+
+.circulo{
+	float: left;
+	width: 100px;
+	height: 100px;
+}
+
+p.caminho{
+	position: relative;
+	left: 20px;
+	top: 14px;
+	color: #FFF;
+}
+
+div.divisor{
+	float: left;
+	width: 30px;
+	height: 30px;
+	position: relative;
+	top: 12px;
+}
