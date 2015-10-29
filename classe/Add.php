@@ -30,47 +30,63 @@ class Add extends Problema {
         $this->arrayCaminho[3] = 0;
     }
 
+    private function existirGrafoLivre() {
+        for ($i = 0; $i < count($this->arrayGrafo); $i++) {
+            if ($this->arrayGrafo[$i] == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /*
      * Método que verifica as possibilidades, dos caminhos
      * Nesse método iremos inserir os vértices, que estão fora do array possibCaminho
-     */
-
+    */
     private function caminho() {
-        for ($i = 0; $i < count($this->arrayGrafo); $i++) {
-            if ($this->arrayGrafo[$i] != 1) {
+        $menorCusto = 999999;
+        $vertice = NULL;
+        $posicaoMenor = NULL;
+        $custo = NULL;
 
-                $menorCusto = 999999;
-                $vertice = NULL;
-                $posicaoMenor = NULL;
+        if(!$this->existirGrafoLivre()){
+             $this->calcularCusto();
+        }
+        else{
+            for ($i = 0; $i < count($this->arrayGrafo); $i++) {
+                if ($this->arrayGrafo[$i] != 1) {
+                    for ($j = 1; $j < count($this->arrayCaminho); $j++) {
 
-                for ($j = 1; $j < count($this->arrayCaminho); $j++) {
+                        /*
+                         * Ex: 0->1, onde 0 está na posicao j e 1 está na posição j-1
+                         * Armazena a distância de 0->1
+                         */
+                        $custoPosicao = $this->matriz[$this->arrayCaminho[$j]][$this->arrayCaminho[$j - 1]];
+                        /*
+                         * Ex: Insere o vértice $i e armazena em:
+                         * $custoPossibUm o valor da distância do vértice $i até 0
+                         * $custoPossibDois o valor da distãncia do vértice $i até 1
+                         */
+                        $custoPossibUm = $this->matriz[$this->arrayCaminho[$j]][$i];
+                        $custoPossibDois = $this->matriz[$this->arrayCaminho[$j - 1]][$i];
 
-                    /*
-                     * Ex: 0->1, onde 0 está na posicao j e 1 está na posição j-1
-                     * Armazena a distância de 0->1
-                     */
-                    $custoPosicao = $this->matriz[$this->arrayCaminho[$j]][$this->arrayCaminho[$j - 1]];
-                    /*
-                     * Ex: Insere o vértice $i e armazena em:
-                     * $custoPossibUm o valor da distância do vértice $i até 0
-                     * $custoPossibDois o valor da distãncia do vértice $i até 1
-                     */
-                    $custoPossibUm = $this->matriz[$this->arrayCaminho[$j]][$i];
-                    $custoPossibDois = $this->matriz[$this->arrayCaminho[$j - 1]][$i];
+                        $custo = $custoPosicao - ($custoPossibUm + $custoPossibDois);
+                        $custo = abs($custo); // retorna o valor absoluto do número ex: -42 --> 42
 
-                    $custo = $custoPosicao - ($custoPossibUm + $custoPossibDois);
-                    $custo = abs($custo); // retorna o valor absoluto do número ex: -42 --> 42
-                    if ($menorCusto >= $custo) {
-                        $menorCusto = $custo;
-                        $vertice = $i;
-                        $posicaoMenor = $j;
+                        if ($menorCusto >= $custo) {
+                            $menorCusto = $custo;
+                            $vertice = $i;
+                            $posicaoMenor = $j;
+                        }
                     }
                 }
-                // Método que atualiza o arrayCaminho com o mais novo vértice
-                $this->atualizaArrayCaminho($vertice, $posicaoMenor);
             }
+            $this->arrayGrafo[$vertice] = 1;
+            // Método que atualiza o arrayCaminho com o mais novo vértice
+            $this->atualizaArrayCaminho($vertice, $posicaoMenor);
+            // Fico chamando a função até que todos os vértices sejam percorridos
+            $this->caminho();
         }
-        $this->calcularCusto();
     }
 
     private function atualizaArrayCaminho($vertice, $posicao) {
@@ -78,7 +94,7 @@ class Add extends Problema {
         for ($i = 0; $i < count($this->arrayCaminho); $i++) {
             if ($i != $posicao) {
                 $array[$k] = $this->arrayCaminho[$i];
-            }else{
+            } else {
                 $k++;
                 $array[$posicao] = $vertice;
                 $array[$k] = $this->arrayCaminho[$i];
@@ -88,9 +104,9 @@ class Add extends Problema {
         $this->arrayCaminho = $array;
         $array = NULL;
     }
-    
-    private function calcularCusto(){
-        for($i = 0; $i < count($this->arrayCaminho)-1; $i++){
+
+    private function calcularCusto() {
+        for ($i = 0; $i < count($this->arrayCaminho) - 1; $i++) {
             $this->custo = $this->custo + $this->matriz[$this->arrayCaminho[$i]][$this->arrayCaminho[$i + 1]];
         }
     }

@@ -1,12 +1,6 @@
 <?php
 include 'Problema.php';
 
-
-/**
- * Description of Primeiro_metodo
- *
- * @author Peter Clayder
- */
 class Primeiro_metodo extends Problema{
     
 

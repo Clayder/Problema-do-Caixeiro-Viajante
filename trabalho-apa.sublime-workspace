@@ -24,10 +24,26 @@
 	"buffers":
 	[
 		{
-			"file": "/home/clayder/Desenvolvimento/Java/tetris-copia/Cenario.java",
+			"file": "classe/Add.php",
 			"settings":
 			{
-				"buffer_size": 12519,
+				"buffer_size": 3232,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "caminho.php",
+			"settings":
+			{
+				"buffer_size": 9070,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "classe/Problema.php",
+			"settings":
+			{
+				"buffer_size": 2056,
 				"line_ending": "Unix"
 			}
 		}
@@ -70,12 +86,11 @@
 	"expanded_folders":
 	[
 		"/opt/lampp/htdocs/www/Problema-do-Caixeiro-Viajante",
-		"/opt/lampp/htdocs/www/Problema-do-Caixeiro-Viajante/classe",
-		"/opt/lampp/htdocs/www/Problema-do-Caixeiro-Viajante/style",
-		"/opt/lampp/htdocs/www/Problema-do-Caixeiro-Viajante/style/css"
+		"/opt/lampp/htdocs/www/Problema-do-Caixeiro-Viajante/classe"
 	],
 	"file_history":
 	[
+		"/home/clayder/Desenvolvimento/Java/tetris-copia/Cenario.java",
 		"/opt/lampp/htdocs/www/Problema-do-Caixeiro-Viajante/caminho.php",
 		"/opt/lampp/htdocs/www/Problema-do-Caixeiro-Viajante/style/css/style.css",
 		"/opt/lampp/htdocs/www/Problema-do-Caixeiro-Viajante/classe/Primeiro_metodo.php",
@@ -135,11 +150,71 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/home/clayder/Desenvolvimento/Java/tetris-copia/Cenario.java",
+					"file": "classe/Add.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12519,
+						"buffer_size": 3232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1475,
+								1475
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 722.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "caminho.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9070,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6434,
+								6434
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 915.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "classe/Problema.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2056,
 						"regions":
 						{
 						},
@@ -152,13 +227,15 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Java/Java.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 794.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -241,7 +318,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 214.0,
+	"side_bar_width": 173.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
