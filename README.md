@@ -1,6 +1,6 @@
 # README #
 
-Trabalho realizado para a disciplina de Análise e projetos de algoritmos (UFF). 
+Trabalho realizado para a disciplina de An�lise e projetos de algoritmos (UFF). 
 
 ### Objetivos ###
 
@@ -9,4 +9,4 @@ Trabalho realizado para a disciplina de Análise e projetos de algoritmos (UFF).
 
 ### Demo ###
 
-[DEMO](http://www.uff.pxcode.com.br/problema-do-caixeiro-viajante/)
+[DEMO](http://www.uff.peterclayder.com.br/problema-do-caixeiro-viajante/)
